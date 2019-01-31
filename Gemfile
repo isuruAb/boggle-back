@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'grape'
 gem 'grape-entity'
 gem 'grape_on_rails_routes'
+gem 'rack-cors'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

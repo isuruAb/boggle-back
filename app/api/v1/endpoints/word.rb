@@ -5,22 +5,21 @@ module V1
 
       format :json
       prefix :api
-      resource :word do
+      resource :boggle do
       
         desc "Returns Characters of boggle board"
         params do
             #requires :token, type: String, desc: "Access token."
         end
-        get :characters do   
-           # random= ['VSLHERAESITSMRPS']
+        get :board do   
             {data: ['V','S','L','H','E','R','A','E','S','I','T','S','M','R','P','S']}
         end
 
         desc "Check correctness of words"
         params do
-            requires :word, type: String, desc: "Selected word."
+            requires :word, type: Array, desc: "Selected word."
         end
-        post :selected do   
+        post :word do   
 
            wordArr= ['SIT','IT','ARE','EAR'];
            check=wordArr.include?(params[:word])
