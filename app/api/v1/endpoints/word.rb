@@ -1,3 +1,4 @@
+require 'set'
 
 module V1
   module ENDPOINTS
@@ -12,7 +13,7 @@ module V1
             #requires :token, type: String, desc: "Access token."
         end
         get :board do   
-            {data: ['V','S','L','H','E','R','A','E','S','I','T','S','M','R','P','S']}
+            {data: ['T', 'A', 'P', '*','E', 'A', 'K', 'S','O', 'B', 'R', 'S','S', '*', 'X', 'D']}
         end
 
         desc "Check correctness of words"
@@ -21,10 +22,15 @@ module V1
         end
         post :word do   
 
-           wordArr= ['SIT','IT','ARE','EAR'];
-           check=wordArr.include?(params[:word])
-            split=params[:word].split('')
-            {check:check,split:split}
+          word= params[:word].join('')
+          lines=[]          
+          File.open( "dictionary.txt" ) do |io|
+            io.each {|line| line.chomp! ; lines << line if line.include? 'sob'}
+          end
+          s=lines.to_set
+          checkResult= s.include?params[:word].join('').downcase 
+          puts checkResult
+          {check:checkResult}
         end
 
       end
