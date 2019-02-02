@@ -20,16 +20,27 @@ module V1
         params do
             requires :word, type: Array, desc: "Selected word."
         end
-        post :word do   
+        post :word do
+          #Check whether there are any Stars (*)s 
+          indexesOfStar=[]
+        
+          params[:word].each_with_index do |char, index|
+            print ', * exists ', char==='*'
+            if char==='*'
+              indexesOfStar.push(index)
+            end
+          end
+
+          print "   ", indexesOfStar , '\n'
 
           word= params[:word].join('')
-          lines=[]          
+          lines=[]
           File.open( "dictionary.txt" ) do |io|
-            io.each {|line| line.chomp! ; lines << line if line.include? 'sob'}
+            io.each {|line| line.chomp! ; lines << line}
           end
           s=lines.to_set
           checkResult= s.include?params[:word].join('').downcase 
-          puts checkResult
+          puts 'result ',checkResult
           {check:checkResult}
         end
 
