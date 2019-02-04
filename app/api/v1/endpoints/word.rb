@@ -5,7 +5,7 @@ module V1
     class Word < Grape::API
       alphabet=['A','B','C','D','E','F','G','H','I','J','K','L','M',
         'N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-      wordsWithStars=[]
+      wordsWithResult=[]
       # def getCombinations(startIndex, stars,iteration)
       #   if(stars===0)
       #     alphabet.each_with_index do |item, index|
@@ -27,7 +27,9 @@ module V1
             #requires :token, type: String, desc: "Access token."
         end
         get :board do   
-            {data: ['T', 'A', 'P', '*','E', 'A', 'K', 'S','O', 'B', 'R', 'S','S', '*', 'X', 'D']}
+          wordsWithResult=[]
+
+          {data: ['T', 'A', 'P', '*','E', 'A', 'K', 'S','O', 'B', 'R', 'S','S', '*', 'X', 'D']}
         end
 
         desc "Check correctness of words"
@@ -61,13 +63,15 @@ module V1
           # Counting points
           if(checkResult.length!=0)
             hasWord=true
+
             for x in 0..checkResult.length-1
               points=points+1
             end
           end
+          wordsWithResult.push([word,points])
 
-          print "points ",points
-          {check:hasWord,points:points}
+          print "wordsWithResult ",wordsWithResult
+          {check:hasWord,points:points,results:wordsWithResult}
         end
 
       end

@@ -1,24 +1,15 @@
-# README
+# Boggle Game -Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup - Manual
 
-Things you may want to cover:
+- Clone the project and move to the project directory using terminal
+- Install dependencies using this command `bundle install`
+- Run the application using this command `rails s`
 
-* Ruby version
+## If needed
+- Check Routes `rails grape:routes`
+- Check API Swagger [http://localhost:3001/v1/swagger_doc](http://localhost:3001/v1/swagger_doc)
 
-* System dependencies
+## Setup using Docker
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `docker build -t boggle:docker-ruby .`
