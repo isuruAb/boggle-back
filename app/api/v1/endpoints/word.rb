@@ -71,7 +71,7 @@ module V1
           wordsWithResult.push([word,points])
 
           print "wordsWithResult ",wordsWithResult
-          {check:hasWord,points:points,results:wordsWithResult}
+          {check:hasWord,points:points, results:wordsWithResult}
         end
 
       end
