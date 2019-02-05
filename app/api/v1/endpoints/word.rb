@@ -6,18 +6,6 @@ module V1
       alphabet=['A','B','C','D','E','F','G','H','I','J','K','L','M',
         'N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
       wordsWithResult=[]
-      # def getCombinations(startIndex, stars,iteration)
-      #   if(stars===0)
-      #     alphabet.each_with_index do |item, index|
-            
-      #     end
-      #     return wordsWithStars
-      #   else
-      #     for(c=iteration;c<alphabet.length;c++){
-
-      #     }
-      #   end
-      # end
       format :json
       prefix :api
       resource :boggle do
