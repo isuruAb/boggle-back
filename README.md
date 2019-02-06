@@ -27,3 +27,7 @@ When a tile is blank, it can be treated as any other letter.  Note that in one g
 - Install bundler `gem install bundler`
 
 ## Docker deployment
+
+- Start the app `docker-compose up -d`
+- Apply database migration `docker-compose run --rm app rails db:create db:migrate db:seed`
+
