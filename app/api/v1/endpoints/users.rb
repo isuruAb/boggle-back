@@ -29,8 +29,8 @@ module V1
           username: params["username"], 
           points:params["points"], 
           datetime: params["datetime"] )
-         present :status, 201
-         present :user, @user
+          present :status, 201
+          present :user, @user
 
         end
 

@@ -16,8 +16,8 @@ module V1
         end
         get :board do   
           wordsWithResult=[]
-
-          {data: ['T', 'A', 'P', '*','E', 'A', 'K', 'S','O', 'B', 'R', 'S','S', '*', 'X', 'D']}
+          present :status, 201
+          present :data, ['T', 'A', 'P', '*','E', 'A', 'K', 'S','O', 'B', 'R', 'S','S', '*', 'X', 'D']
         end
 
         desc "Check correctness of words"
@@ -29,7 +29,6 @@ module V1
           word= params[:word].join('')
           wordReg=word.downcase.gsub(/[*]/, "[a-z]")
           regexObj=Regexp.new('\b'+wordReg+'\b')
-          puts "wordReg",wordReg
 
           # Get List of words from the dictionary
           lines=[]
@@ -40,11 +39,8 @@ module V1
 
           #create a regex object dynamically
           s=lines.to_set
-          puts 'type od regexObj',regexObj
           checkResult=lines.select { |e| regexObj =~ e }
-          puts "test select",checkResult            
                       
-          # checkResult= lines.include?params[:word].join('').downcase 
           points=0
           hasWord=false
 
@@ -59,7 +55,10 @@ module V1
           wordsWithResult.push([word,points])
 
           print "wordsWithResult ",wordsWithResult
-          {check:hasWord,points:points, results:wordsWithResult}
+          present :status, 201
+          present :check, hasWord
+          present :points, points
+          present :results, wordsWithResult
         end
 
       end
