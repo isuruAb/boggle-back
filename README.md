@@ -29,5 +29,9 @@ When a tile is blank, it can be treated as any other letter.  Note that in one g
 ## Docker deployment
 
 - Start the app `docker-compose up -d`
-- Apply database migration `docker-compose run --rm app rails db:create db:migrate db:seed`
+- Apply database migration `docker-compose run --rm app rails db:create db:migrate db:seed` this will expose the application form http://localhost:3001
 
+## Game Play Demo
+
+Please refer below link to watch game play demo video
+[https://youtu.be/clhoTFMFqYg](https://youtu.be/clhoTFMFqYg) 
